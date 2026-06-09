@@ -1,16 +1,6 @@
 import { Component, Input, input, computed, Output, EventEmitter, output } from '@angular/core';
 
-// type Usertype = {
-//   id: string;
-//   avatar: string;
-//   name: string;
-// }
-
-interface Usertype {
-  id: string;
-  avatar: string;
-  name: string;
-}
+import { type Usertype } from './user.model';
 
 @Component({
   selector: 'app-user',
@@ -21,9 +11,7 @@ interface Usertype {
 export class User {
 
   @Input({required: true}) user!: Usertype;
-  // @Input({required: true}) id!: string;
-  // @Input({required: true}) avatar!: string;
-  // @Input({required: true}) name!: string;
+  @Input ({required: true}) selected!: boolean;
   @Output() select = new EventEmitter<string>();
 
   get imagePath(){
